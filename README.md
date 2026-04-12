@@ -39,6 +39,20 @@ npm run dev
 
 Frontend URL: `http://localhost:5173`
 
+## Frontend Environment Variable
+
+Create `frontend/.env`:
+
+```bash
+VITE_API_BASE_URL=http://localhost:5000/api
+```
+
+For production, set this to your deployed backend URL, for example:
+
+```bash
+VITE_API_BASE_URL=https://your-backend-domain.com/api
+```
+
 ## Backend API Endpoints
 
 - `POST /api/auth/login` - returns JWT token and user payload
@@ -55,3 +69,23 @@ Frontend URL: `http://localhost:5173`
 4. Protected routes require authentication.
 5. Role routes require minimum role level.
 6. Backend middleware enforces token and role checks for API security.
+
+## Deployment (Recommended)
+
+### Backend on Render
+
+- Root Directory: `backend`
+- Build command: `npm install`
+- Start command: `npm start`
+- Environment variables:
+	- `JWT_SECRET` = strong secret
+	- `JWT_EXPIRES_IN` = `1h`
+	- `FRONTEND_ORIGIN` = your frontend URL
+
+### Frontend on Vercel/Netlify
+
+- Root Directory: `frontend`
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable:
+	- `VITE_API_BASE_URL` = backend URL + `/api`
