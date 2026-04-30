@@ -1,5 +1,6 @@
-# React Login + JWT Protected Routes + RBAC
+# React JWT Authentication & RBAC System
 
+React Login + JWT Protected Routes + RBAC
 This project combines:
 
 - Responsive React login UI
